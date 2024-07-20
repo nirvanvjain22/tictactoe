@@ -9,7 +9,7 @@ const startGameBtn = document.getElementById("instructions-btn");
 const modal = document.getElementById("modal");
 
 //variables
-let grid = [2,2,2,2,2,2,2,2,2]; // 3 states- 0 : cross there , 1 : circle there , 2 : nothing 
+let grid = [2,2,2,2,2,2,2,2,2]; // 3 states-> 0 : cross there , 1 : circle there , 2 : nothing 
 
 const players = [
     {
@@ -124,7 +124,7 @@ function continueGame() {
 
 function resetGame() {
     grid.fill(2);
-    allSquares.forEach( (square) => square.classList.add("gridSquare") );
+    allSquares.forEach( (square) => square.classList = ("gridSquare") );
     addSquareClick();
     didAnyOneWin = false;
     isCircleFlag = false;
@@ -152,14 +152,20 @@ function startGame() {
 
         players[1].name = player2Name;
         players[1].wins = 0;
+        
+        console.log("Players 0  = " + players[0].name);
 
-        if(player1Input == "Jinay") {
-            document.getElementById("info_playber_name1").innerHTML = `${player1Name} <img src = './images/crown.png' width='20px' height='15px' />`;
+        if(player1Input === "jinay") {
+            // document.getElementById("info_player_name1").innerHTML = `${players[0].name} <img src='./images/crown.png' width='20px' height='15px'>`;
+            document.getElementById(
+                "info__player__name1"
+              ).innerHTML = `${players[0].name}
+                <img src='./images/crown.png' width='20px' height='15px'>`;
         } else {
-            document.getElementById("info_playber_name1").innerHTML = players[0].name;
+            document.getElementById("info__player__name1").innerHTML = players[0].name;
         }
 
-        document.getElementById("info_playber_name2").innerHTML = players[1].name;
+        document.getElementById("info__player__name2").innerHTML = players[1].name;
 
         playerOneScore.innerHTML = players[0].wins;
         playerTwoScore.innerHTML = players[1].wins;
